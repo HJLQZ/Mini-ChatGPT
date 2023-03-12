@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="css/jquery.bigautocomplete.css" type="text/css" />
     <title>Mini-ChatGPT</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-</head >
+    <script type="text/javascript" src="http://www.jq-school.com/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.bigautocomplete.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.ajax({
+                url: 'questions.json',//就从这个文件夹里平级的questions.json里找数据
+                dataType: 'json',
+                success: function (data)// 将检索到的标题列表作为数据传递给bigAutocomplete函数
+                {
+                    console.log('seccuess!');
+                    var newData = [];
+                    for (var i = 0; i < data.length; i++) {
+                        newData.push({ title: data[i].question });
+                    }
+                    $("#input-field").bigAutocomplete({
+                        width: 604,
+                        data: newData,
+                        callback: function (data) { }
+                    });
+                },
+                error: function (xhr, status, error) {
+                    console.log('error!');
+                    console.log(error);
+                }
+            });
+        });
+    </script>
+</head>
 
                 <body>
                     <div class="container">
