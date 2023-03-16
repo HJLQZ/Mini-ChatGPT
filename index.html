@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/jquery.bigautocomplete.css" type="text/css" />
     <title>Mini-ChatGPT</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -10,10 +11,9 @@
     <script type="text/javascript">
         $(function () {
             $.ajax({
-                url: 'questions.json',//就从这个文件夹里平级的questions.json里找数据
+                url: 'questions.json',
                 dataType: 'json',
-                success: function (data)// 将检索到的标题列表作为数据传递给bigAutocomplete函数
-                {
+                success: function (data) {
                     console.log('seccuess!');
                     var newData = [];
                     for (var i = 0; i < data.length; i++) {
@@ -33,28 +33,49 @@
         });
     </script>
 </head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Mini-ChatGPT</h1>
+            <div id="clock" class="clock">00:00:00</div>
+        </div>
+        <div id="chatbox">
+            <div class="message-time" id="time1"> 00:00:00 </div>
+            <div class="bot-message">
+                <div class="chat-message chatbot">Hi there, how can I help you today?</div>
+                <div class="message-time" id="time2">00:00:00</div>
+            </div>
+        </div>
+        <form id="input-form">
+            <input type="text" id="input-field" placeholder="Ask without question mark">
+            <button type="submit" id="submit-button">Send</button>
+            <!--<button id="export-button">Export Chat History</button>-->
+            <button type="button" id="hot-button">Hot</button>
+        </form>
+        <script type="text/javascript" src="js/dragwindow.js"></script>
 
-                <body>
-                    <div class="container">
-                        <div class="header">
-                            <h1>Mini-ChatGPT</h1>
-                            <div id="clock" class="clock">00:00:00</div>
-                        </div>
-                        <div id="chatbox">
-                            <div class="message-time" id="time1"> 00:00:00 </div>
-                            <div class="bot-message">
-                                <div class="chat-message chatbot">Hi there, how can I help you today?</div>
-                                <div class="message-time" id="time2">00:00:00</div>
-                            </div>
-                        </div>
-                        <form id="input-form">
-                            <input type="text" id="input-field" placeholder="Ask without question mark">
-                                <button type="submit" id="submit-button">Send</button>
-                                <!--<button id="export-button">Export Chat History</button>-->
-                        </form>
-                        <script type="text/javascript" src="js/dragwindow.js"></script>
+        <br />
     </div>
-    </body>
+    <div class="container2">
+        <div id="ol-container">
+            <ol>
+                <li class="hot-problem">1</li>
+                <li class="hot-problem">2</li>
+                <li class="hot-problem">3</li>
+                <li class="hot-problem">4</li>
+                <li class="hot-problem">5</li>
+
+            </ol>
+
+        </div>
+        <div class="button-container">
+            <button type="button" id="refresh-button">刷新</button>
+            <button type="button" id="close-button">关闭</button>
+        </div>
+    </div>
+    <script src="js/sidewindow.js"></script>
+    <script src="js/draghot.js"></script>
+</body>      
 </html>
 
 

@@ -103,6 +103,8 @@ h1 {
     border: none;
     flex-grow: 1;
     position: absolute;
+    left:20%;
+    width:30%;
 }
 
 #submit-button {
@@ -113,15 +115,16 @@ h1 {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    position:relative;
-    left:150px;
+    position: relative;
+    /*left:150px;*/
+    left: 19%;
 }
 
     #submit-button:hover {
         background-color: #3e8e41;
     }
 
-#export-button {
+/*#hot-button {
     background-color: #008CBA;
     color: white;
     border: none;
@@ -131,10 +134,10 @@ h1 {
     cursor: pointer;
 }
 
-    #export-button:hover {
+    #hot-button:hover {
         background-color: #006f8b;
     }
-
+*/
 
 
 .message-time {
@@ -163,3 +166,104 @@ h1 {
     background-size: 100% 100%;
     background-image: url("chatgpt.png");
 }
+
+.container2 {
+    border-color: #4caf50;
+    background-color: white;
+    border-width: 1px;
+    border-style: solid;
+    width: 240px;
+    height: 300px;
+    position: absolute;
+    left: 20%;
+    top: 30%;
+    border-radius: 20px;
+    z-index: 999;
+    display: none;
+}
+
+#ol-container {
+    /*border-color: #4caf50;*/
+    border-color:black;
+    background-color: white;
+    border-width: 1px;
+    border-style: solid;
+    width: 90%;
+    height: 75%;
+    position: relative;
+    left: 0;
+    top: 0;
+    border-radius: 20px;
+    z-index:9999;
+    display: none;
+    margin:10px;
+}
+
+ol {
+    list-style: none;
+}
+
+#hot-problem {
+    margin-left:5%;
+    text-align:left;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    position:relative;
+    left: 0;
+    right: 0;
+}
+
+#refresh-button {
+    position: relative;
+    left:5%;
+    height: 17%;
+    width: 40%;
+    top: 70%;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+    #refresh-button:hover {
+        background-color: #3e8e41;
+    }
+
+#close-button {
+    position: relative;
+    right:5%;
+    height: 17%;
+    width: 40%;
+    top: 70%;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+    #close-button:hover {
+        background-color: #3e8e41;
+    }
+
+#hot-button {
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    position: relative;
+    left: 22%;
+}
+
+    #hot-button:hover {
+        background-color: #006f8b;
+    }

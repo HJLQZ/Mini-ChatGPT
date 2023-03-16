@@ -1,17 +1,17 @@
-const time1 = document.getElementById('time1')
-time1.innerHTML = new Date().toLocaleString()
-const time2 = document.getElementById('time2')
-time2.innerHTML = new Date().toLocaleString()
+const time1 = document.getElementById('time1');
+time1.innerHTML = new Date().toLocaleString();
+const time2 = document.getElementById('time2');
+time2.innerHTML = new Date().toLocaleString();
 
 function updateClock() {
-  const clock = document.getElementById('clock')
-  const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: 'numeric', minute: 'numeric', second: 'numeric' }
-  const timeString = new Date().toLocaleString('en-US', options)
-  clock.textContent = timeString
+    const clock = document.getElementById('clock');
+    const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: 'numeric', minute: 'numeric', second: 'numeric' }
+    const timeString = new Date().toLocaleString('en-US', options);
+    clock.textContent = timeString;
 }
 
 // 更新时钟
-setInterval(updateClock, 1000)
+setInterval(updateClock, 1000);
 
 
 
@@ -20,8 +20,10 @@ window.onload = function () {
     const inputForm = document.getElementById('input-form');
     const inputField = document.getElementById('input-field');
     const chatBox = document.getElementById('chatbox');
+    //const hotButton = document.getElementById('hot-button');
 // Event listeners
     inputForm.addEventListener('submit', submitForm);
+    //hotButton.addEventListener('click', hotQuestions);
 }
 
 
@@ -102,7 +104,7 @@ function formatTimestamp(timestamp) {
 }
 
 // Get response from API
-// 返回格式： {"Response": "hello"}
+// 返回格式： {"answer": "hello"}
 async function getResponse(query)
 {
     try
@@ -128,4 +130,26 @@ async function getResponse(query)
     {
         console.error('There was a problem with the fetch operation:', error);
     }
+}
+
+function hotQuestions()
+{
+    fetch('http://localhost:3008/hotlist')
+        .then(response => response.json())
+        .then(data =>
+        {
+            for (let i = 0; i < data.length; i++)
+            {
+                const question = data[i].question;
+                const accessCount = data[i].access_count;
+                const li = document.createElement('li');
+                li.textContent = `${i + 1}. ${question} (${accessCount})`;
+                document.getElementById('hotlist').appendChild(li);
+            }
+        })
+        .catch(error => console.error(error));
+    /*const downloadLink = document.createElement("a");
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);*/
 }
