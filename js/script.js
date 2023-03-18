@@ -44,7 +44,7 @@ function sendMessage() {
         .catch((error) => {
             console.log(error);
             appendMessage('chatbot', '对不起，我的数据库里没有这个问题的答案。', new Date().getTime());
-        }); }, 1000);
+        }); }, 2000);
     
 }
 
@@ -132,24 +132,3 @@ async function getResponse(query)
     }
 }
 
-function hotQuestions()
-{
-    fetch('http://localhost:3008/hotlist')
-        .then(response => response.json())
-        .then(data =>
-        {
-            for (let i = 0; i < data.length; i++)
-            {
-                const question = data[i].question;
-                const accessCount = data[i].access_count;
-                const li = document.createElement('li');
-                li.textContent = `${i + 1}. ${question} (${accessCount})`;
-                document.getElementById('hotlist').appendChild(li);
-            }
-        })
-        .catch(error => console.error(error));
-    /*const downloadLink = document.createElement("a");
-    document.body.appendChild(downloadLink);
-    downloadLink.click();
-    document.body.removeChild(downloadLink);*/
-}

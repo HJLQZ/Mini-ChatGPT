@@ -6,10 +6,10 @@ const Semaphore = require('semaphore');
 const semaphore = Semaphore(3); // Semaphore对象初始值为3
 
 const conn = mysql.createConnection({
-  user: 'root',
-  password: '123123444',
-  host: 'localhost',
-  database: 'minigpt',
+  user: 'root',//your name
+  password: 'password',//your password
+  host: 'localhost',//your host
+  database: 'minigpt',//your database
   port: '3306',
 })
 conn.connect();
@@ -65,11 +65,11 @@ app.post('/minigpt', function (req, res)
 
 app.get('/hotlist', function (req, res)
 {
-    let sql = `SELECT * FROM questions_answers ORDER BY access_count DESC LIMIT 5`; 
+    let sql = `SELECT * FROM questions_answers ORDER BY access_count DESC LIMIT 9`; 
     conn.query(sql, function (err, rows)
     {
         if (err) console.log('error!');
-        else res.send(rows);
+        else { res.send(rows);  }
     });
 });
 

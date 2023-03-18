@@ -16,6 +16,7 @@ function mouseMove2(e) {
         draggable2.style.left = newx2 + "px";
         draggable2.style.top = newy2 + "px";
     }
+   // console.log(draggable2.style.left); console.log(draggable2.style.top);
 }
 
 function mouseUp2(e) {

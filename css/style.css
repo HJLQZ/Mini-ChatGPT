@@ -175,7 +175,7 @@ h1 {
     width: 240px;
     height: 300px;
     position: absolute;
-    left: 20%;
+    right: 20%;
     top: 30%;
     border-radius: 20px;
     z-index: 999;
@@ -183,9 +183,9 @@ h1 {
 }
 
 #ol-container {
-    /*border-color: #4caf50;*/
-    border-color:black;
-    background-color: white;
+    /*border-color:#4caf50;*/
+    border-color: transparent;
+    background-color: transparent;
     border-width: 1px;
     border-style: solid;
     width: 90%;
@@ -197,15 +197,18 @@ h1 {
     z-index:9999;
     display: none;
     margin:10px;
+    padding-top:0;
 }
 
 ol {
-    list-style: none;
+    width:92%;
+    list-style:none;
+    padding-left:5%;
 }
 
-#hot-problem {
-    margin-left:5%;
-    text-align:left;
+.hot-problem {
+    margin:0;
+    padding:0;
 }
 
 .button-container {
@@ -261,7 +264,7 @@ ol {
     margin-left: 10px;
     cursor: pointer;
     position: relative;
-    left: 22%;
+    left: 25%;
 }
 
     #hot-button:hover {
